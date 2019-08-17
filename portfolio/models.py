@@ -27,8 +27,8 @@ class UserProfile(models.Model):
     class Meta:
         verbose_name = _('Profile')
         verbose_name_plural = _('Profiles')
-        # ordering = ['first_name']
-        # unique_together =['phone_number','email']
+        ordering = ['user__first_name']
+        unique_together =['user','phone_number']
 
 def create_user_profile(sender, instance, created, **kwargs):
     if created:
